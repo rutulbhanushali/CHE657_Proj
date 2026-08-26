@@ -1,0 +1,231 @@
+Dataset shape: (100000, 19)
+
+First few rows:
+   Magnetic Field Fluctuations   Leakage  Instabilities  Plasma Instabilities  \
+0                     0.037454  0.058078       0.028259              0.015705   
+1                     0.095071  0.052697       0.045868              0.009551   
+2                     0.073199  0.035104       0.009922              0.013794   
+3                     0.059866  0.049321       0.044684              0.047349   
+4                     0.015602  0.036510       0.020308              0.088453   
+
+   Magnetic Field Strength Magnetic Field Configuration  Injection Energy  \
+0                 9.000578                      tokamak          5.713125   
+1                 3.841421         reversed field pinch          9.819548   
+2                 1.467187                  stellarator          7.016781   
+3                 9.277696                      tokamak          4.018930   
+4                 4.926347         reversed field pinch          6.145836   
+
+   Beam Symmetry  Target Density Target Composition  Fuel Density  \
+0       0.800007    2.026963e+19          deuterium  7.612226e+19   
+1       0.082642    3.050685e+19  deuterium-tritium  8.742441e+19   
+2       0.176319    5.287388e+19            tritium  8.236610e+19   
+3       0.833709    5.961305e+19  deuterium-tritium  9.079654e+19   
+4       0.808161    7.887942e+19          deuterium  8.186142e+19   
+
+    Temperature  Confinement Time  Fuel Purity  Energy Input  Power Output  \
+0  4.050388e+08          0.842126    99.971295    250.726719     55.321517   
+1  2.551963e+08          0.504637    99.951049    345.614166     22.767959   
+2  2.627651e+08          0.357445    99.958831    290.050980     49.872944   
+3  3.104709e+08          0.992195    99.997186    436.491093      2.656182   
+4  3.258529e+08          0.648677    99.927054    198.773196     48.096005   
+
+       Pressure  Neutron Yield  Ignition  
+0  6.107792e+06   5.443404e+10         0  
+1  4.921946e+06   8.372016e+10         0  
+2  9.798230e+06   8.112584e+10         1  
+3  5.611293e+06   4.423307e+10         1  
+4  8.541064e+06   2.245276e+10         0  
+
+Data points for physics regression: 100000
+Temperature range: [1.00e+08, 5.00e+08]
+Plasma Density range: [1.00e+19, 1.00e+20]
+Power Output range: [3.77e-05, 1.00e+02]
+
+Scaled Temperature range: [1.00, 5.00]
+Scaled Plasma Density range: [1.00, 10.00]
+Scaled Power Output range: [0.00, 10.00]
+
+Initial parameter guess: β=1.000000e+00, b=20.0
+Error in curve fitting: operands could not be broadcast together with shapes (2,) (100000,) 
+Using default values: β_scaled=1.000000e+00, b=20.0
+
+Numeric columns: 16
+Categorical columns: ['Magnetic Field Configuration', 'Target Composition']
+
+X_train_t shape: (80000, 22)
+X_test_t shape: (20000, 22)
+Total features after encoding: 22
+
+Feature indices - Temperature: 9, Fuel Density: 8
+
+==================================================
+TRAINING MODELS
+==================================================
+
+>>> Training Physics-Informed Neural Network (PINN)
+    Physics weight (λ): 0.1
+    Using β_scaled = 1.000000e+00, b = 20.000000
+    Using β_original = 1.000000e-53
+==================================================
+
+Epoch [10/100]
+  Train - Total: 1098.5941, Data: 898.8612, Physics: 1.9973e+03
+  Test  - Total: 1052.2097, Data: 853.9046, Physics: 1.9831e+03
+Epoch [20/100]
+  Train - Total: 1083.9262, Data: 883.5650, Physics: 2.0036e+03
+  Test  - Total: 1050.3696, Data: 845.3908, Physics: 2.0498e+03
+Epoch [30/100]
+  Train - Total: 1076.1176, Data: 875.1202, Physics: 2.0100e+03
+  Test  - Total: 1050.7359, Data: 841.4158, Physics: 2.0932e+03
+Epoch [40/100]
+  Train - Total: 1065.2315, Data: 863.1398, Physics: 2.0209e+03
+  Test  - Total: 1053.5046, Data: 852.9698, Physics: 2.0053e+03
+Epoch [50/100]
+  Train - Total: 1054.9464, Data: 851.3617, Physics: 2.0358e+03
+  Test  - Total: 1056.9247, Data: 848.0432, Physics: 2.0888e+03
+Epoch [60/100]
+  Train - Total: 1049.3768, Data: 845.3314, Physics: 2.0405e+03
+  Test  - Total: 1058.8864, Data: 851.5673, Physics: 2.0732e+03
+Epoch [70/100]
+  Train - Total: 1042.8803, Data: 838.6752, Physics: 2.0421e+03
+  Test  - Total: 1059.7895, Data: 859.6489, Physics: 2.0014e+03
+Epoch [80/100]
+  Train - Total: 1037.1250, Data: 831.8355, Physics: 2.0529e+03
+  Test  - Total: 1062.0489, Data: 853.3617, Physics: 2.0869e+03
+Epoch [90/100]
+  Train - Total: 1035.1445, Data: 830.1634, Physics: 2.0498e+03
+  Test  - Total: 1061.7858, Data: 859.1808, Physics: 2.0261e+03
+Epoch [100/100]
+  Train - Total: 1029.0933, Data: 823.2913, Physics: 2.0580e+03
+  Test  - Total: 1064.3127, Data: 856.0586, Physics: 2.0825e+03
+
+>>> Training Pure Data-Driven Neural Network
+    Physics weight (λ): 0.0 (no physics loss)
+==================================================
+
+Epoch [10/100]
+  Train - Total: 877.2265, Data: 877.2265, Physics: 2.4162e+03
+  Test  - Total: 840.5403, Data: 840.5403, Physics: 2.0959e+03
+Epoch [20/100]
+  Train - Total: 861.4510, Data: 861.4510, Physics: 2.4324e+03
+  Test  - Total: 828.4222, Data: 828.4222, Physics: 2.7075e+03
+Epoch [30/100]
+  Train - Total: 851.1622, Data: 851.1622, Physics: 2.4402e+03
+  Test  - Total: 824.5142, Data: 824.5142, Physics: 2.4002e+03
+Epoch [40/100]
+  Train - Total: 842.4658, Data: 842.4658, Physics: 2.4471e+03
+  Test  - Total: 826.4442, Data: 826.4442, Physics: 2.4183e+03
+Epoch [50/100]
+  Train - Total: 834.3908, Data: 834.3908, Physics: 2.4549e+03
+  Test  - Total: 829.7164, Data: 829.7164, Physics: 2.4383e+03
+Epoch [60/100]
+  Train - Total: 825.6638, Data: 825.6638, Physics: 2.4668e+03
+  Test  - Total: 835.7765, Data: 835.7765, Physics: 2.3763e+03
+Epoch [70/100]
+  Train - Total: 818.3225, Data: 818.3225, Physics: 2.4743e+03
+  Test  - Total: 837.5610, Data: 837.5610, Physics: 2.4127e+03
+Epoch [80/100]
+  Train - Total: 811.7829, Data: 811.7829, Physics: 2.4842e+03
+  Test  - Total: 841.0581, Data: 841.0581, Physics: 2.4228e+03
+Epoch [90/100]
+  Train - Total: 808.3394, Data: 808.3394, Physics: 2.4808e+03
+  Test  - Total: 839.8400, Data: 839.8400, Physics: 2.4343e+03
+Epoch [100/100]
+  Train - Total: 803.6474, Data: 803.6474, Physics: 2.4824e+03
+  Test  - Total: 844.3227, Data: 844.3227, Physics: 2.4642e+03
+
+================================================================================
+MODEL COMPARISON: PINN vs PURE NN vs PURE PHYSICS MODEL
+================================================================================
+
+--------------------------------------------------------------------------------
+1. PURE PHYSICS MODEL (Regression Only)
+--------------------------------------------------------------------------------
+
+Training Set:
+  MSE: 3.3048e+03
+  MAE: 4.9709e+01
+  R²:  -2.9633
+
+Test Set:
+  MSE: 3.3077e+03
+  MAE: 4.9848e+01
+  R²:  -3.0190
+
+--------------------------------------------------------------------------------
+2. PURE DATA-DRIVEN NEURAL NETWORK (No Physics)
+--------------------------------------------------------------------------------
+
+Training Set:
+  MSE: 7.6809e+02
+  MAE: 2.3911e+01
+  R²:  0.0789
+
+Test Set:
+  MSE: 8.4432e+02
+  MAE: 2.5027e+01
+  R²:  -0.0259
+
+--------------------------------------------------------------------------------
+3. PHYSICS-INFORMED NEURAL NETWORK (PINN)
+--------------------------------------------------------------------------------
+
+Training Set:
+  MSE: 7.9218e+02
+  MAE: 2.4212e+01
+  R²:  0.0500
+
+Test Set:
+  MSE: 8.5606e+02
+  MAE: 2.5132e+01
+  R²:  -0.0401
+
+--------------------------------------------------------------------------------
+PERFORMANCE SUMMARY (Test Set)
+--------------------------------------------------------------------------------
+
+Best MSE: 8.4432e+02 (Pure NN)
+Best R²:  -0.0259 (Pure NN)
+
+MSE Rankings (lower is better):
+  1. Pure NN: 8.4432e+02
+  2. PINN: 8.5606e+02
+  3. Physics Model: 3.3077e+03
+
+R² Rankings (higher is better):
+  1. Pure NN: -0.0259
+  2. PINN: -0.0401
+  3. Physics Model: -3.0190
+================================================================================
+
+
+
+
+---- Diagrams Came Here -----
+
+
+
+
+
+==================================================
+EXPERIMENT SUMMARY
+==================================================
+
+Physics Parameters (from regression):
+  β_scaled = 1.000000e+00
+  β_original = 1.000000e-53
+  b = 20.000000
+
+Scaling Factors:
+  Temperature scale: 1.00e+08
+  Density scale: 1.00e+19
+  Power scale: 1.00e+01
+
+PINN Configuration:
+  Physics weight (λ) = 0.1
+  Architecture: 22 -> 128 -> 64 -> 32 -> 1
+  Training epochs: 100
+  Features: 16 numeric + 2 categorical (one-hot encoded)
+
+To change physics weight, modify the PHYSICS_WEIGHT variable in SECTION 11
+==================================================
