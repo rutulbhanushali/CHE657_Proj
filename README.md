@@ -256,13 +256,13 @@ $$
 where:
 
 $$
-L_{\text{data}}=\operatorname{MSE}(P_{\text{pred}} , P_{\text{actual}})
+L_{\text{data}}={MSE}(P_{\text{pred}} , P_{\text{actual}})
 $$
 
 and:
 
 $$
-L_{\text{physics}}=\operatorname{MSE}\left(P_{\text{pred}} , \beta n^2\Phi(T)\right)
+L_{\text{physics}}={MSE}\left(P_{\text{pred}} , \beta n^2\Phi(T)\right)
 $$
 
 The implementation uses:
