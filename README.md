@@ -292,10 +292,7 @@ The intuition is that the reaction rate depends on collisions between particles,
 The project uses a simplified Bosch–Hale-inspired reactivity relation:
 
 $$
-\Phi(T)
-=
-T^2
-\exp\left(-\frac{b}{\sqrt{T}}\right)
+\Phi(T)= T^2 \exp\left(-\frac{b}{\sqrt{T}}\right)
 $$
 
 where \(b\) is a fitted parameter.
@@ -303,12 +300,7 @@ where \(b\) is a fitted parameter.
 Combining the two gives:
 
 $$
-P(n,T)
-=
-\beta
-T^2
-\exp\left(-\frac{b}{\sqrt{T}}\right)
-n^2
+P(n,T)= \beta T^2 \exp\left(-\frac{b}{\sqrt{T}}\right)n^2
 $$
 
 This simplified relation was then incorporated into the PINN physics loss.
